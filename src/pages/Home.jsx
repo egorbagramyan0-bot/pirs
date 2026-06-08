@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Anchor, Calendar, Clock, Users, ArrowRight, MapPin, Compass, ShieldCheck, Heart, Wine, Music, Car } from 'lucide-react';
+import { Anchor, Calendar, Clock, Users, ArrowRight, MapPin, ShieldCheck } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
 
 const heroBackground = "/hero3.png";
@@ -457,87 +457,7 @@ export default function Home() {
       </section>
 
       {/* 3. Benefits Section */}
-      <section className="bg-brand-cream border-y border-brand-sand/20 py-20">
-        <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
-          {/* Benefit 1 */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <span className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-blue bg-brand-cream/20">
-              <Compass className="w-7 h-7 text-brand-gold" />
-            </span>
-            <h3 className="font-sans text-[11px] uppercase tracking-[0.25em] text-brand-blue font-bold">
-              Вид на Дон
-            </h3>
-            <p className="text-sm text-brand-blue/60 leading-relaxed font-light max-w-[220px]">
-              Ресторан расположен на набережной, прямо у воды.
-            </p>
-          </div>
-
-          {/* Benefit 2 */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <span className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-blue bg-brand-cream/20">
-              <Anchor className="w-7 h-7 text-brand-gold" />
-            </span>
-            <h3 className="font-sans text-[11px] uppercase tracking-[0.25em] text-brand-blue font-bold">
-              Летняя веранда
-            </h3>
-            <p className="text-sm text-brand-blue/60 leading-relaxed font-light max-w-[220px]">
-              Ужинайте на свежем воздухе с видом на реку.
-            </p>
-          </div>
-
-          {/* Benefit 3 */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <span className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-blue bg-brand-cream/20">
-              <Heart className="w-7 h-7 text-brand-gold" />
-            </span>
-            <h3 className="font-sans text-[11px] uppercase tracking-[0.25em] text-brand-blue font-bold">
-              Авторская кухня
-            </h3>
-            <p className="text-sm text-brand-blue/60 leading-relaxed font-light max-w-[220px]">
-              Европейские и кавказские блюда для встреч в любом формате.
-            </p>
-          </div>
-
-          {/* Benefit 4 */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <span className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-blue bg-brand-cream/20">
-              <Wine className="w-7 h-7 text-brand-gold" />
-            </span>
-            <h3 className="font-sans text-[11px] uppercase tracking-[0.25em] text-brand-blue font-bold">
-              Винная карта
-            </h3>
-            <p className="text-sm text-brand-blue/60 leading-relaxed font-light max-w-[220px]">
-              Подберите напитки к ужину или праздничному событию.
-            </p>
-          </div>
-
-          {/* Benefit 5 */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <span className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-blue bg-brand-cream/20">
-              <Music className="w-7 h-7 text-brand-gold" />
-            </span>
-            <h3 className="font-sans text-[11px] uppercase tracking-[0.25em] text-brand-blue font-bold">
-              Живая музыка
-            </h3>
-            <p className="text-sm text-brand-blue/60 leading-relaxed font-light max-w-[220px]">
-              Атмосферные вечера для отдыха с близкими.
-            </p>
-          </div>
-
-          {/* Benefit 6 */}
-          <div className="flex flex-col items-center text-center space-y-4">
-            <span className="w-16 h-16 rounded-full border border-brand-gold/30 flex items-center justify-center text-brand-blue bg-brand-cream/20">
-              <Car className="w-7 h-7 text-brand-gold" />
-            </span>
-            <h3 className="font-sans text-[11px] uppercase tracking-[0.25em] text-brand-blue font-bold">
-              Парковка
-            </h3>
-            <p className="text-sm text-brand-blue/60 leading-relaxed font-light max-w-[220px]">
-              Для гостей ресторана предусмотрена парковка.
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       {/* 4. Storytelling Block */}
       <section className="py-24 max-w-[1280px] mx-auto px-8">
