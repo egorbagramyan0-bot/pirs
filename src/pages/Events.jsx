@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Users, CheckCircle, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ChevronRight } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
-
 
 const eventsHeroImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuB87cqDwH_XCHvz7sPHg--ju4hffHBsk0Pz359P3Wpih_nSyWPSNLVtPIYzQl2B1X-CqKRPlCi3F0Tl3g84u9_U_xlt4ASqTPfS_D9TO5cXKjJtyquEU9zz-UTR2ldxYsaI4EIuR74wdApqB5DnrhmksI1pguLgsORmO2Y4VOs3J37kvvjNQxohXWLcljVg1CoriTvuKZwp9UzWFhRLIlmRFUJlLL6HMKdxTR2VNtcKo1TBz60I3CwR_jKK1v1JIbwpAwNLFiU";
 const birthdayImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuCYYAPrDhmv_zmYRatbyCFZT_0Z-LxletuLMVpuZCGtCKg092u31eBEfiKuYBMENc-WO3f1OMZ8K0R-AgOSMXSIB3wgejz6k6rJma1ELWN_mbvIUU_D63LM7zlBgE-laePxGDAOcEewAG_RmeeaGmG_hv_cTrbk-izrX5QwQDeE24ucnhJYyt-TzI2iovwDiHWn7r6uu0vHV3Zxov6xkRwNX2lpqjxlCpu9I1j-eYIKoXLlBUZN1SoPIwRcwhsd10KQ5rk9UM8"; // sunset lounge vibe
@@ -60,19 +58,7 @@ export default function Events() {
     keywords: 'банкет Ростов Береговая, свадьба у воды Ростов-на-Дону, заказать день рождения в ресторане, ресторан Пирс банкеты'
   });
 
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [eventType, setEventType] = useState('wedding');
-  const [guestsCount, setGuestsCount] = useState('20');
-  const [date, setDate] = useState('');
-  const [comment, setComment] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Process event coordination submission
-    setIsSubmitted(true);
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="space-y-0 bg-brand-cream/40 min-h-screen pb-24">
@@ -149,177 +135,15 @@ export default function Events() {
                   </ul>
                 </div>
 
-                <a 
-                  href="#coordinationForm"
-                  className="w-full py-3.5 border border-brand-blue/20 hover:border-brand-gold text-brand-blue hover:text-brand-blue hover:bg-brand-gold/10 text-center text-[10px] uppercase tracking-widest font-bold rounded-[6px] transition-all duration-300 block"
+                <button 
+                  onClick={() => navigate('/booking-event', { state: { eventType: format.title, guestsLimit: format.guests } })}
+                  className="w-full py-3.5 border border-brand-blue/20 hover:border-brand-gold text-brand-blue hover:text-brand-blue hover:bg-brand-gold/10 text-center text-[10px] uppercase tracking-widest font-bold rounded-[6px] transition-all duration-300 block cursor-pointer bg-transparent"
                 >
                   Обсудить мероприятие
-                </a>
+                </button>
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* 3. Event Form section */}
-      <section id="coordinationForm" className="py-24 bg-brand-cream border-t border-brand-sand/20">
-        <div className="max-w-[1280px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
-          {/* Slogan details */}
-          <div className="lg:col-span-5 text-left space-y-6">
-            <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-gold font-bold block">
-              Индивидуальный подход
-            </span>
-            <h2 className="font-serif text-4xl text-brand-blue font-semibold leading-tight">
-              Подберем идеальный формат для вас
-            </h2>
-            <div className="w-12 h-px bg-brand-gold" />
-            <p className="font-sans text-brand-blue/70 text-sm leading-relaxed font-light">
-              Команда ресторана «Пирс» поможет подобрать подходящий формат, рассадку и детали мероприятия. Мы составим праздничное меню, посоветуем декор и позаботимся о комфорте ваших гостей.
-            </p>
-            <div className="space-y-3 pt-2 text-xs text-brand-blue/80">
-              <p className="flex items-center gap-3">
-                <Sparkles className="w-4 h-4 text-brand-gold" />
-                <span>Бесплатный расчет сметы в 3-х вариантах</span>
-              </p>
-              <p className="flex items-center gap-3">
-                <Users className="w-4 h-4 text-brand-gold" />
-                <span>Возможность закрытия ресторана под ключ</span>
-              </p>
-            </div>
-          </div>
-
-          {/* Booking Request Form Card */}
-          <div className="lg:col-span-7 w-full">
-            <div className="bg-brand-cream/80 backdrop-blur-md p-8 md:p-10 rounded-[32px] border border-brand-sand/30 shadow-xl relative overflow-hidden">
-              <AnimatePresence mode="wait">
-                {!isSubmitted ? (
-                  <motion.form 
-                    key="form"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onSubmit={handleSubmit} 
-                    className="space-y-6 text-left"
-                  >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {/* Name */}
-                      <div className="border-b border-brand-sand/40 pb-2">
-                        <label className="block text-[9px] uppercase tracking-wider text-brand-blue/60 font-semibold mb-1">Имя</label>
-                        <input 
-                          type="text" 
-                          placeholder="Иван Иванов"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          className="bg-transparent border-0 p-0 text-sm font-semibold text-brand-blue focus:ring-0 w-full placeholder-brand-blue/30"
-                          required
-                        />
-                      </div>
-                      
-                      {/* Phone */}
-                      <div className="border-b border-brand-sand/40 pb-2">
-                        <label className="block text-[9px] uppercase tracking-wider text-brand-blue/60 font-semibold mb-1">Телефон</label>
-                        <input 
-                          type="tel" 
-                          placeholder="+7 (999) 123-45-67"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          className="bg-transparent border-0 p-0 text-sm font-semibold text-brand-blue focus:ring-0 w-full placeholder-brand-blue/30"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* Event Type */}
-                      <div className="border-b border-brand-sand/40 pb-2 col-span-1">
-                        <label className="block text-[9px] uppercase tracking-wider text-brand-blue/60 font-semibold mb-1">Событие</label>
-                        <select 
-                          value={eventType}
-                          onChange={(e) => setEventType(e.target.value)}
-                          className="bg-transparent border-0 p-0 text-sm font-semibold text-brand-blue focus:ring-0 w-full"
-                        >
-                          <option value="wedding">Свадьба</option>
-                          <option value="birthday">День рождения</option>
-                          <option value="family">Семейный ужин</option>
-                          <option value="corporate">Корпоратив</option>
-                          <option value="business">Деловая встреча</option>
-                          <option value="banquet">Банкет</option>
-                          <option value="other">Другое</option>
-                        </select>
-                      </div>
-
-                      {/* Guest Count */}
-                      <div className="border-b border-brand-sand/40 pb-2 col-span-1">
-                        <label className="block text-[9px] uppercase tracking-wider text-brand-blue/60 font-semibold mb-1">Количество гостей</label>
-                        <input 
-                          type="number" 
-                          value={guestsCount}
-                          onChange={(e) => setGuestsCount(e.target.value)}
-                          className="bg-transparent border-0 p-0 text-sm font-semibold text-brand-blue focus:ring-0 w-full"
-                          min="1"
-                          required
-                        />
-                      </div>
-
-                      {/* Desired Date */}
-                      <div className="border-b border-brand-sand/40 pb-2 col-span-1">
-                        <label className="block text-[9px] uppercase tracking-wider text-brand-blue/60 font-semibold mb-1">Желаемая дата</label>
-                        <input 
-                          type="date" 
-                          value={date}
-                          onChange={(e) => setDate(e.target.value)}
-                          className="bg-transparent border-0 p-0 text-sm font-semibold text-brand-blue focus:ring-0 w-full"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    {/* Comment */}
-                    <div className="border-b border-brand-sand/40 pb-2">
-                      <label className="block text-[9px] uppercase tracking-wider text-brand-blue/60 font-semibold mb-1">Комментарий / пожелания</label>
-                      <input 
-                        type="text"
-                        placeholder="Например, интересует живая музыка или закрытая веранда..."
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                        className="bg-transparent border-0 p-0 text-sm font-semibold text-brand-blue focus:ring-0 w-full placeholder-brand-blue/30"
-                      />
-                    </div>
-
-                    <button 
-                      type="submit" 
-                      className="w-full bg-brand-blue hover:bg-brand-gold text-brand-cream hover:text-brand-blue py-4 text-[11px] uppercase tracking-[0.25em] font-bold transition-all duration-300 rounded-[4px] shadow-lg"
-                    >
-                      Отправить заявку
-                    </button>
-                  </motion.form>
-                ) : (
-                  <motion.div 
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center justify-center py-16 space-y-6 text-center"
-                  >
-                    <CheckCircle className="w-16 h-16 text-brand-gold animate-bounce" />
-                    <div className="space-y-2">
-                      <h3 className="font-serif text-2xl text-brand-blue font-semibold">Заявка отправлена</h3>
-                      <p className="text-sm text-brand-blue/70 font-light max-w-sm">
-                        Спасибо, {name}! Администратор свяжется с вами в ближайшее время для подтверждения бронирования.
-                      </p>
-                    </div>
-                    <button 
-                      onClick={() => setIsSubmitted(false)}
-                      className="border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-brand-cream px-8 py-3 text-[10px] uppercase tracking-wider font-bold rounded-[4px] transition-all"
-                    >
-                      Отправить еще одну заявку
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-
         </div>
       </section>
     </div>

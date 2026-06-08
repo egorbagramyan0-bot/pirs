@@ -8,6 +8,7 @@ import About from './pages/About';
 import Events from './pages/Events';
 import Contacts from './pages/Contacts';
 import Booking from './pages/Booking';
+import BookingEvent from './pages/BookingEvent';
 import PageTransitionLoader from './components/PageTransitionLoader';
 
 // Scroll to top on route change
@@ -69,6 +70,7 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/booking-event" element={<BookingEvent />} />
           </Routes>
         </main>
         <Footer />
