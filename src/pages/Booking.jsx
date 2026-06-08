@@ -52,13 +52,14 @@ export default function Booking() {
   const [phone, setPhone] = useState('');
   const [comment, setComment] = useState('');
   const [notifMethod, setNotifMethod] = useState('whatsapp');
+  const [consent, setConsent] = useState(false);
 
   // Stable random code for the ticket
   const [resCode] = useState(() => Math.floor(1000 + Math.random() * 9000));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!date || !time || !name || !phone) return;
+    if (!date || !time || !name || !phone || !consent) return;
     setStep(2);
   };
 
@@ -272,6 +273,21 @@ export default function Booking() {
                     </div>
                   </div>
 
+                  {/* Consent checkbox */}
+                  <div className="flex items-start gap-3 text-xs text-brand-blue/70">
+                    <input 
+                      type="checkbox"
+                      id="consent"
+                      checked={consent}
+                      onChange={(e) => setConsent(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 rounded border-brand-sand text-brand-gold focus:ring-brand-gold bg-transparent cursor-pointer"
+                      required
+                    />
+                    <label htmlFor="consent" className="cursor-pointer select-none leading-relaxed font-light">
+                      Я согласен на <span className="text-brand-gold font-medium hover:underline">обработку персональных данных</span> в соответствии с политикой конфиденциальности.
+                    </label>
+                  </div>
+
                   {/* Info Warning */}
                   <div className="p-4 bg-brand-blue/5 rounded-2xl border border-brand-sand/20 flex gap-3 text-xs text-brand-blue/70 leading-relaxed font-light">
                     <ShieldCheck className="w-5 h-5 text-brand-gold flex-shrink-0" />
@@ -282,7 +298,12 @@ export default function Booking() {
                   <div className="flex justify-end pt-4">
                     <button
                       type="submit"
-                      className="bg-brand-blue hover:bg-brand-gold text-brand-cream hover:text-brand-blue px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 rounded-lg shadow-md hover:shadow-lg flex items-center gap-2"
+                      disabled={!consent}
+                      className={`bg-brand-blue text-brand-cream px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 rounded-lg shadow-md flex items-center gap-2 ${
+                        !consent 
+                          ? 'opacity-40 cursor-not-allowed' 
+                          : 'hover:bg-brand-gold hover:text-brand-blue hover:shadow-lg'
+                      }`}
                     >
                       <span>Отправить заявку</span>
                       <ChevronRight className="w-4 h-4" />
@@ -380,6 +401,7 @@ export default function Booking() {
                       setName('');
                       setPhone('');
                       setComment('');
+                      setConsent(false);
                     }}
                     className="text-[10px] uppercase font-bold text-brand-blue hover:text-brand-gold transition-colors tracking-wider"
                   >
