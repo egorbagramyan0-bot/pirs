@@ -76,9 +76,7 @@ export default function Home() {
 
           {/* Vertical text */}
           <div className="flex-grow flex items-center justify-center">
-            <span className="vertical-text font-sans text-[10px] tracking-[0.45em] text-brand-blue/70 uppercase font-semibold">
-              время замедлиться
-            </span>
+            {/* Empty space */}
           </div>
 
           {/* Anchor at the bottom */}
