@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ресторан Пирс | Ресторан у воды в Ростове-на-Дону</title>
+    <meta name="description" content="Ресторан «Пирс» в Ростове-на-Дону — премиальный ресторан у воды на Береговой улице. Летняя веранда с видом на Дон, авторская европейская и кавказская кухня, живая музыка и атмосфера отдыха." />
+    <meta name="keywords" content="Пирс Ростов, Ресторан Пирс, ресторан у воды, Ростов-на-Дону Береговая, ресторан Ростов, веранда у воды, вид на Дон, забронировать стол, банкеты Ростов" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      .preloader-container {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background-color: #fdfbf7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        pointer-events: auto;
+      }
+      .preloader-container.fade-out {
+        opacity: 0;
+        transform: scale(1.02);
+        pointer-events: none;
+      }
+      .preloader-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .preloader-container.fade-out .preloader-content {
+        transform: scale(0.95);
+      }
+      .preloader-helm {
+        width: 80px;
+        height: 80px;
+        animation: preloader-spin 3s linear infinite;
+      }
+      @media (min-width: 768px) {
+        .preloader-helm {
+          width: 110px;
+          height: 110px;
+        }
+      }
+      .preloader-title {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        color: #041627;
+        margin: 0;
+        padding-left: 0.3em;
+      }
+      .preloader-subtitle {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        color: #bfa260;
+        margin: 4px 0 0 0;
+        padding-left: 0.25em;
+      }
+      @keyframes preloader-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="initial-preloader" class="preloader-container">
+      <div class="preloader-content">
+        <!-- Premium Rotating SVG Helm -->
+        <svg class="preloader-helm" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <g id="spoke-unit">
+              <!-- Spoke shaft (between hub and inner rim) -->
+              <path d="M -2,-24 C -2,-29 -3.5,-32 -3.5,-36 C -3.5,-40 -2,-43 -2,-48 L 2,-48 C 2,-43 3.5,-40 3.5,-36 C 3.5,-32 2,-29 2,-24 Z" fill="none" stroke="#041627" stroke-width="2.5" />
+              <!-- Spoke collars -->
+              <rect x="-4" y="-26" width="8" height="2" rx="0.5" fill="#041627" />
+              <rect x="-4" y="-48" width="8" height="2" rx="0.5" fill="#041627" />
+              <!-- Inner to outer rim connection -->
+              <line x1="0" y1="-48" x2="0" y2="-60" stroke="#041627" stroke-width="4.5" />
+              <!-- Rivet (hollow circle) -->
+              <circle cx="0" cy="-54" r="1.5" fill="#fdfbf7" stroke="#041627" stroke-width="2.5" />
+              <!-- Handle double collar at base -->
+              <rect x="-4.5" y="-62" width="9" height="1.5" rx="0.5" fill="#041627" />
+              <rect x="-4.5" y="-64" width="9" height="1.5" rx="0.5" fill="#041627" />
+              <!-- Handle shape -->
+              <path d="M -2.5,-64 C -2.5,-66 -1.5,-67 -1.5,-69 C -1.5,-72 -4,-74 -4,-77 C -4,-81 -2,-84 -2,-86 M 2,-86 C 2,-84 4,-81 4,-77 C 4,-74 1.5,-72 1.5,-69 C 1.5,-67 2.5,-66 2.5,-64" fill="none" stroke="#041627" stroke-width="2.5" />
+              <!-- Handle collar near tip -->
+              <rect x="-3" y="-87" width="6" height="1.5" rx="0.5" fill="#041627" />
+              <!-- Handle tip ball -->
+              <circle cx="0" cy="-90" r="3.5" fill="none" stroke="#041627" stroke-width="2.5" />
+            </g>
+          </defs>
+          <!-- Concentric Rims -->
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#041627" stroke-width="3" />
+          <circle cx="100" cy="100" r="48" fill="none" stroke="#041627" stroke-width="3" />
+          <!-- Hub -->
+          <circle cx="100" cy="100" r="24" fill="none" stroke="#041627" stroke-width="2.5" />
+          <circle cx="100" cy="100" r="15" fill="none" stroke="#041627" stroke-width="4.5" />
+          <!-- 8 Spoke Units rotated around center -->
+          <g transform="translate(100, 100)">
+            <use href="#spoke-unit" />
+            <use href="#spoke-unit" transform="rotate(45)" />
+            <use href="#spoke-unit" transform="rotate(90)" />
+            <use href="#spoke-unit" transform="rotate(135)" />
+            <use href="#spoke-unit" transform="rotate(180)" />
+            <use href="#spoke-unit" transform="rotate(225)" />
+            <use href="#spoke-unit" transform="rotate(270)" />
+            <use href="#spoke-unit" transform="rotate(315)" />
+          </g>
+        </svg>
+        <h1 class="preloader-title">ПИРС</h1>
+        <p class="preloader-subtitle">Ресторан у воды</p>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
