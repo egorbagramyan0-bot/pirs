@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Users, Clock, Coffee, ShieldCheck, ChevronRight, CalendarPlus, HelpCircle, Check, MapPin } from 'lucide-react';
+import { Calendar, Users, Clock, ShieldCheck, ChevronRight, CalendarPlus, Check, MapPin } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
 
 const zones = [
@@ -407,30 +407,7 @@ export default function Booking() {
 
           </AnimatePresence>
         </div>
-      </section>
-
-      {/* Helpful FAQ / Policy banner */}
-      <section className="max-w-[800px] mx-auto px-6 mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-        <div className="bg-brand-cream border border-brand-sand/20 p-6 rounded-2xl space-y-2">
-          <h3 className="font-serif text-base font-semibold text-brand-blue flex items-center gap-2">
-            <Coffee className="w-4.5 h-4.5 text-brand-gold" />
-            <span>Дресс-код ресторации</span>
-          </h3>
-          <p className="text-xs text-brand-blue/70 font-light leading-relaxed">
-            В ресторане «Пирс» действует повседневный элегантный стиль (smart casual). Мы просим воздержаться от посещения ресторана в спортивной одежде или пляжных костюмах.
-          </p>
-        </div>
-
-        <div className="bg-brand-cream border border-brand-sand/20 p-6 rounded-2xl space-y-2">
-          <h3 className="font-serif text-base font-semibold text-brand-blue flex items-center gap-2">
-            <HelpCircle className="w-4.5 h-4.5 text-brand-gold" />
-            <span>Особые случаи и банкеты</span>
-          </h3>
-          <p className="text-xs text-brand-blue/70 font-light leading-relaxed">
-            Для бронирования столов на компании свыше 10 человек, проведения юбилеев или закрытых корпоративных торжеств перейдите на страницу <a href="#/events" className="text-brand-gold font-medium hover:underline">Мероприятия</a> или свяжитесь с менеджером.
-          </p>
-        </div>
-      </section>
+      </section>      
     </div>
   );
 }
