@@ -305,7 +305,7 @@ export default function Booking() {
                           : 'hover:bg-brand-gold hover:text-brand-blue hover:shadow-lg'
                       }`}
                     >
-                      <span>Отправить заявку</span>
+                      <span>Забронировать</span>
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
