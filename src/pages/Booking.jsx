@@ -50,7 +50,6 @@ export default function Booking() {
   
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
   const [comment, setComment] = useState('');
   const [notifMethod, setNotifMethod] = useState('whatsapp');
 
@@ -242,20 +241,7 @@ export default function Booking() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-                      {/* Email */}
-                      <div className="border-b border-brand-sand/40 pb-2">
-                        <label className="block text-[9px] uppercase tracking-wider text-brand-blue/50 font-semibold mb-1">Эл. почта</label>
-                        <input 
-                          type="email" 
-                          placeholder="alexander@example.com"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          className="bg-transparent border-0 p-0 text-sm font-semibold text-brand-blue focus:ring-0 w-full placeholder-brand-blue/20"
-                          required
-                        />
-                      </div>
-
+                    <div className="grid grid-cols-1 gap-6 pt-2">
                       {/* Notification Method */}
                       <div className="border-b border-brand-sand/40 pb-2">
                         <label className="block text-[9px] uppercase tracking-wider text-brand-blue/50 font-semibold mb-1">Способ подтверждения</label>
@@ -267,7 +253,6 @@ export default function Booking() {
                           <option value="whatsapp">Сообщение в WhatsApp</option>
                           <option value="telegram">Сообщение в Telegram</option>
                           <option value="phone">Звонок от хостес</option>
-                          <option value="email">Письмо на эл. почту</option>
                         </select>
                       </div>
                     </div>
@@ -394,7 +379,6 @@ export default function Booking() {
                       setStep(1);
                       setName('');
                       setPhone('');
-                      setEmail('');
                       setComment('');
                     }}
                     className="text-[10px] uppercase font-bold text-brand-blue hover:text-brand-gold transition-colors tracking-wider"
